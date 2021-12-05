@@ -45,11 +45,16 @@ yargs.command({
             describe: 'note title',
             demandOption: true, //must include title
             type: 'string' //title must be a string
+        },
+        description: {
+            describe: 'the note description',
+            demandOption: true,
+            type: 'string'
         }
     },
     handler: (argv) => {
-        console.log(chalk.white.inverse('adding a new note...'));
-        console.log(argv)
+        console.log(chalk.white.inverse('added a new note with title: ' + argv.title));
+        console.log(chalk.blue.inverse('the note description is: ' + argv.description));
     }
 });
 
