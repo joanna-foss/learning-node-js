@@ -1,17 +1,13 @@
 const fs = require('fs'); //load in file system in order to use
 const chalk = require('chalk');
 
-const getNotes = () => {
-    return "Your notes...";
-}
+const getNotes = () => "Your notes..."
 
 const addNote = (title, body) => {
     //this function should load in existing notes first, parse them, add something new onto the array, and resave to file
     const notes = loadNotes();
     //check if title is already in use
-    const copyNotes = notes.filter((note) => {
-        return note.title === title;
-    });
+    const copyNotes = notes.filter((note) => note.title === title);
     //if title not in use, add note
     if (copyNotes.length === 0) {
         notes.push({
@@ -38,9 +34,7 @@ const loadNotes = () => { //returns an array of notes
 
 const removeNote = (title) => {
     const notes = loadNotes();
-    const noteToRemove = notes.filter((note) => {
-        return note.title === title;
-    });
+    const noteToRemove = notes.filter((note) => note.title === title);
     const newNotes = [];
     if (noteToRemove.length === 0) {
         console.log(chalk.bgRedBright("Could not find note by that title. :("));
