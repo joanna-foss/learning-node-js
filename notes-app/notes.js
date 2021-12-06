@@ -62,12 +62,20 @@ const listNotes = () => {
 
 const readNote = (title) => {
     const notes = loadNotes();
-    notes.forEach(());
+    const note = notes.find((note) => note.title === title);
+
+    if(note) {
+        console.log(chalk.cyan.inverse(note.title));
+        console.log(chalk.cyan(note.body));
+    } else {
+        console.log(chalk.red.inverse("No note by that title was found. :("));
+    }
 }
 
 module.exports = { //this exports a single object with multiple properties containing the functions you want to use in app.js
     getNotes: getNotes(),
     addNote: addNote,
     removeNote: removeNote,
-    listNotes: listNotes
+    listNotes: listNotes,
+    readNote: readNote
 }

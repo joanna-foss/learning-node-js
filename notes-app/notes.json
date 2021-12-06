@@ -1,1 +1,18 @@
-[{"title":"New Title","body":"New Body"},{"title":"Title","body":"Body"},{"title":"Working","body":"Working body"},{"title":"T","body":"B"}]
+[
+  {
+    "title": "New Title",
+    "body": "New Body"
+  },
+  {
+    "title": "Title",
+    "body": "Body"
+  },
+  {
+    "title": "Working",
+    "body": "Working body"
+  },
+  {
+    "title": "Shopping List",
+    "body": "Toilet Paper, Paper Towels, Napkins"
+  }
+]

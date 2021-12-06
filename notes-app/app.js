@@ -59,7 +59,7 @@ yargs.command({
             type: 'string'
         }
     },
-    handler() { console.log(chalk.white.inverse('reading the notes...')) }
+    handler(argv) { notes.readNote(argv.title) }
 })
 
 yargs.parse();
