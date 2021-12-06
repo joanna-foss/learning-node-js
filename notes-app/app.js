@@ -1,8 +1,3 @@
-//Goal refactor all functions
-//1. if function is a method, use es6 standard function syntax
-//2. otherwise, use most concise arrow function possible
-//3. test your work!
-
 const notes = require('./notes.js');
 const chalk = require('chalk');
 const yargs = require('yargs');
@@ -47,13 +42,23 @@ yargs.command({
 yargs.command({
     command: 'list',
     describe: 'list the notes',
-    handler() { console.log(chalk.white.inverse('listing the note(s)...')) }
+    handler: () => {
+        console.log(chalk.white.inverse('Your notes'));
+        notes.listNotes();
+    }
 })
 
 //create read command
 yargs.command({
     command: 'read',
     describe: 'read the note',
+    builder: {
+        title: {
+            describe: 'title of note to be read',
+            demandOption: true,
+            type: 'string'
+        }
+    },
     handler() { console.log(chalk.white.inverse('reading the notes...')) }
 })
 

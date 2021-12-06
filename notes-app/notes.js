@@ -7,9 +7,9 @@ const addNote = (title, body) => {
     //this function should load in existing notes first, parse them, add something new onto the array, and resave to file
     const notes = loadNotes();
     //check if title is already in use
-    const copyNotes = notes.filter((note) => note.title === title);
+    const copyNote = notes.find((note) => note.title === title); //will stop searching after finding a match in notes, more appropriate than searching the entire array for our purposes
     //if title not in use, add note
-    if (copyNotes.length === 0) {
+    if (!copyNote) {
         notes.push({
             title: title,
             body: body
@@ -55,8 +55,19 @@ const saveNotes = (notesArr) => {
     fs.writeFileSync('notes.json', notesJSON);
 }
 
+const listNotes = () => {
+    const notes = loadNotes();
+    notes.forEach((note) => console.log(note.title))
+}
+
+const readNote = (title) => {
+    const notes = loadNotes();
+    notes.forEach(());
+}
+
 module.exports = { //this exports a single object with multiple properties containing the functions you want to use in app.js
     getNotes: getNotes(),
     addNote: addNote,
-    removeNote: removeNote
+    removeNote: removeNote,
+    listNotes: listNotes
 }
