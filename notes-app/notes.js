@@ -9,6 +9,7 @@ const addNote = (title, body) => {
     //check if title is already in use
     const copyNote = notes.find((note) => note.title === title); //will stop searching after finding a match in notes, more appropriate than searching the entire array for our purposes
     //if title not in use, add note
+
     if (!copyNote) {
         notes.push({
             title: title,
