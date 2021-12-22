@@ -38,3 +38,10 @@ const transaction = (type, {label, stock}) => {
 }
 
 transaction('Order: ', product);
+
+const greet = (name = 'User') => {
+	console.log('Hello, ' + name + '!');
+}
+
+greet();
+greet('Joanna');
