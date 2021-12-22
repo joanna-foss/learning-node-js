@@ -1,9 +1,10 @@
 const request = require('postman-request');
 const {weatherstackAPIkey, mapboxAPIkey} = require("./keys");
+const geocode = require('./utils/geocode');
 
 const weatherstackURL = 'http://api.weatherstack.com/current?access_key=' + weatherstackAPIkey + '&query=37.8267,-122.4233&units=f'
-const mapboxURL = 'https://api.mapbox.com/geocoding/v5/mapbox.places/Los%20Angeles.json?access_token=' + mapboxAPIkey + '&limit=1'
 
+//DO NOT USE FIREFOX FOR WEATHERSTACK API... AUTOREDIRECTS TO HTTPS AND DOES NOT GIVE YOU BACK THE DATA YOU NEED.
 // request({url: weatherstackURL, json: true}, (error, response) => {
 // 	if (error) {
 // 		console.log("Unable to retrieve data from weatherstack.");
@@ -14,19 +15,7 @@ const mapboxURL = 'https://api.mapbox.com/geocoding/v5/mapbox.places/Los%20Angel
 // 	}
 // });
 
-// request({url: mapboxURL, json: true}, (error, response) => {
-// 	if (error) {
-// 		console.log("Unable to retrieve data from mapbox.");
-// 	} else if (response.body.features.length === 0) {
-// 		console.log("Undefined location.");
-// 	} else {
-// 		console.log("longitude: " + response.body.features[0].geometry.coordinates[0]);
-// 		console.log("latitude: " + response.body.features[0].geometry.coordinates[1]);
-// 	}
-// });
-
-const geocode = (address, callback) => {
-
-}
-
-geocode('San Antonio', () => {});
+geocode('New Orleans', (error, data) => {
+	console.log('Error', error);
+	console.log('Data', data);
+});
