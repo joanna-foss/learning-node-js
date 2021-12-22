@@ -10,18 +10,18 @@ const askForLocation = () => {
 			return askForLocation();
 		}
 		rl.close();
-		geocode(location, (error, geocodeData) => {
+		geocode(location, (error, {longitude, latitude, location} = {}) => { //reference playground/5-es6-objects.js for refresh on what's happening here
 			if (error) {
 				return console.log('Error: ', error);
 			}
-			forecast(geocodeData.longitude, geocodeData.latitude, (error, forecastData) => {
+			forecast(longitude, latitude, (error, {description, temperature, feels_like} = {}) => { //reference playground/5-es6-objects.js for refresh on what's happening here
 				if (error) {
 					return console.log('Error: ', error);
 				}
-				console.log('Weather Data for ' + geocodeData.location + ':');
-				console.log(forecastData.description);
-				console.log(forecastData.temperature);
-				console.log(forecastData.feels_like);
+				console.log('Weather Data for ' + location + ':');
+				console.log(description);
+				console.log(temperature);
+				console.log(feels_like);
 			});
 		});
 
