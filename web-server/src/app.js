@@ -1,26 +1,21 @@
+const path = require('path');
 const express = require('express'); //a function used to call a new express application
 
 const app = express();
+const publicDirPath = path.join(__dirname, '../public');
 
-//app.com
-//app.com/help
-//app.com/about
-//etc.
+app.use('/', express.static(publicDirPath));
+app.use('/help', express.static(path.join(publicDirPath, '/help.html')));
+app.use('/about', express.static(path.join(publicDirPath, '/about.html')));
 
-app.get('', (req, res) => {
-	res.send('Hello express!');
-});
-
-app.get('/help', (req, res) => {
-	res.send('Help page');
-});
-
-app.get('/about', (req, res) => {
-	res.send('About page');
-});
+//GOAL: Create two more HTML files
+// 1. Create an html page for about
+// 2. Create an html page for help
+// 3. Remove the old route handlers for both
+// 4. Visit both to test
 
 app.get('/my-weather', (req, res) => {
-	res.send('Weather page');
+	res.send('<h1>The Current Weather</h1>');
 });
 
 app.listen(3000, () => {
