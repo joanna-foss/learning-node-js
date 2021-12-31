@@ -1,20 +1,27 @@
 console.log('Client side javascript is connected.');
 
-//STUCK HERE
+const formData = document.querySelector('form');
+const input = document.querySelector('input');
+const locationP = document.querySelector('#location');
+const descriptionP = document.querySelector('#description');
 
-fetch('http://localhost:3000/my-weather?address=boston')
-	.then((res)=>{
-		console.log(res);
-		res.json().then((data)=>{
-			console.log(data);
-		})
-		.catch((error)=>{
-			console.log(error)});
-	});
+locationP.textContent = 'Your weather data will display here.';
+descriptionP.textContent = '';
 
-fetch('https://puzzle.mead.io/puzzle')
+formData.addEventListener('submit', (e) => {
+	e.preventDefault();
+
+	const location = input.value;
+
+	fetch('http://localhost:3000/my-weather?address=' + location)
 	.then((res)=>{
-		res.json().then((data)=>{
-			console.log(data);
-		})
+		res.json().then((data)=> {
+		if(data.error){
+			locationP.textContent = data.error;
+		} else {
+			locationP.textContent = data.location;
+			descriptionP.textContent = data.description + ' ' + data.temperature;
+		}
+		}).catch((error)=>{console.log(error)});
 	});
+});

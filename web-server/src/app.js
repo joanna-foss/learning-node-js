@@ -51,7 +51,7 @@ app.get('/my-weather', (req, res) => {
 			if(error){
 				return res.send({ error });
 			}
-			res.send({ //this caused the syntax error in js/app.js... was res.render... had to change to res.send
+			res.send({ //this caused the syntax error in js/app.js... was res.render (HTML)... had to change to res.send (JSON)
 				title: 'My Weather',
 				name: 'Joanna',
 				description,

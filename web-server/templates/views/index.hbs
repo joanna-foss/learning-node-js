@@ -4,13 +4,20 @@
 <body>
     <div class="main-section">
         {{>header}}
-        <p>{{location}}</p>
-        <p>{{description}}</p>
-        <p>{{temperature}}</p>
-        <p>{{feels_like}}</p>
+
+        <h3>Use this site to get some weather!</h3>
+        <form>
+            <input placeholder="Enter location">
+            <button type="submit">Search</button>
+        </form>
+
+        <p id="location"></p>
+        <p id="description"></p>
     </div>
 
     {{>footer}}
+
+<script src="/js/app.js"></script>
 </body>
 
 </html>
