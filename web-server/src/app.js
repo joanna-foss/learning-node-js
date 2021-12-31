@@ -35,7 +35,21 @@ app.get('/help', (req, res) => {
 });
 
 app.get('/my-weather', (req, res) => {
-	res.send('<h1>The Current Weather</h1>');
+	res.send('<h1>Current Weather</h1>');
+});
+
+app.get('/help/*', (req, res) => {
+	res.render('404', {
+		title: '404',
+		message: 'The help article you were looking for was not found. Sorry! Please go back and try again.'
+	});
+});
+
+app.get('*', (req, res) => {
+	res.render('404', {
+		title: '404',
+		message: 'The page you were looking for does not exist.'
+	});
 });
 
 app.listen(3000, () => {
