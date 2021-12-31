@@ -1,6 +1,8 @@
 const path = require('path');
 const express = require('express');
 const hbs = require('hbs');
+const geocode = require('./utils/geocode');
+const forecast = require('./utils/forecast');
 
 const app = express();
 const publicDirPath = path.join(__dirname, '../public');
@@ -41,8 +43,28 @@ app.get('/my-weather', (req, res) => {
 		});
 	}
 
-	res.send({
-		location: req.query.address
+	geocode(req.query.address, (error, {longitude, latitude, location} = {}) => {
+		if(error){
+			return res.send({
+				error: error
+			});
+		}
+		forecast(longitude, latitude, (error, {description, temperature, feels_like} = {}) => {
+			if(error){
+				return res.send({
+					error: error
+				});
+			}
+
+			res.render('index', {
+				title: 'My Weather',
+				name: 'Joanna',
+				description: description,
+				temperature: temperature,
+				feels_like: feels_like,
+				location: location
+			});
+		});
 	});
 });
 
