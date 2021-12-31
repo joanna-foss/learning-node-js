@@ -15,7 +15,7 @@ app.use('/', express.static(publicDirPath));
 
 app.get('/', (req, res) => {
 	res.render('index', {
-		title: 'Home Page',
+		title: 'Weather',
 		name: 'Joanna'
 	});
 });
@@ -41,6 +41,7 @@ app.get('/my-weather', (req, res) => {
 app.get('/help/*', (req, res) => {
 	res.render('404', {
 		title: '404',
+		name: 'Joanna',
 		message: 'The help article you were looking for was not found. Sorry! Please go back and try again.'
 	});
 });
@@ -48,6 +49,7 @@ app.get('/help/*', (req, res) => {
 app.get('*', (req, res) => {
 	res.render('404', {
 		title: '404',
+		name: 'Joanna',
 		message: 'The page you were looking for does not exist.'
 	});
 });

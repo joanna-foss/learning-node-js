@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Home</title>
-	<link rel="stylesheet" href="css/style.css">
-</head>
+{{>head}}
 <body>
-{{>header}}
-<p>This is the {{title}} of the weather app created by {{name}}</p>
-{{>footer}}
+    <div class="main-section">
+        {{>header}}
+        <p>This is the {{title}} of the weather app!</p>
+    </div>
+
+    {{>footer}}
 </body>
 </html>

@@ -1,4 +1,44 @@
-h1, h2, h3, h4, h5, h6 {
+body {
+    color: navy;
+    font-family: Helvetica, sans-serif;
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 0 16px;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    margin: 20px 0;
+}
+
+footer {
+    color: #888;
+    border-top: 1px solid #eee;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+h1 {
     color: pink;
-    font-family: Georgia, sans-serif;
+    font-size: 48px;
+    font-family: monospace, sans-serif;
+}
+
+nav span a {
+    color: #888;
+    margin-right: 20px;
+    text-decoration: none;
+}
+
+.portrait {
+    width: 250px;
+    height: auto;
+    border-radius: 100%;
+}
+
+.main-section {
+    flex-grow: 1;
 }
