@@ -13,7 +13,7 @@ formData.addEventListener('submit', (e) => {
 
 	const location = input.value;
 
-	fetch('http://localhost:3000/my-weather?address=' + location)
+	fetch('/my-weather?address=' + location)
 	.then((res)=>{
 		res.json().then((data)=> {
 		if(data.error){
