@@ -45,24 +45,20 @@ app.get('/my-weather', (req, res) => {
 
 	geocode(req.query.address, (error, {longitude, latitude, location} = {}) => {
 		if(error){
-			return res.send({
-				error: error
-			});
+			return res.send({ error });
 		}
 		forecast(longitude, latitude, (error, {description, temperature, feels_like} = {}) => {
 			if(error){
-				return res.send({
-					error: error
-				});
+				return res.send({ error });
 			}
 
 			res.render('index', {
 				title: 'My Weather',
 				name: 'Joanna',
-				description: description,
-				temperature: temperature,
-				feels_like: feels_like,
-				location: location
+				description,
+				temperature,
+				feels_like,
+				location
 			});
 		});
 	});
