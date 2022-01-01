@@ -8,7 +8,7 @@ const geocode = (address, callback) => {
 		if (error) {
 			callback('Unable to connect to services.', undefined);
 		} else if (body.features.length === 0) {
-			callback('Unable to find a location. Search again.', undefined);
+			callback('Unable to find a location by that search. Please try another location.', undefined);
 		} else {
 			callback(undefined, {
 				longitude: body.features[0].geometry.coordinates[0],

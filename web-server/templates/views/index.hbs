@@ -5,15 +5,16 @@
     <div class="main-section">
         {{>header}}
 
-        <h3>Use this site to get some weather!</h3>
+        <p>Search below for a brief description of the weather in any location of your choosing.</p>
         <form>
-            <input placeholder="Enter location">
+            <input placeholder="Please enter a location">
             <button type="submit">Search</button>
         </form>
-
-        <p id="location"></p>
-        <p id="description"></p>
-        <img src="" id="weather-icon">
+        <div id="display-weather">
+            <img src="" id="weather-icon">
+            <h4 id="location"></h4>
+            <p id="description"></p>
+        </div>
     </div>
 
     {{>footer}}
