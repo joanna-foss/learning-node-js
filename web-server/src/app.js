@@ -1,3 +1,5 @@
+console.log("Server side javascript is connected.");
+
 const path = require('path');
 const express = require('express');
 const hbs = require('hbs');
@@ -49,7 +51,7 @@ app.get('/my-weather', (req, res) => {
 		if(error){
 			return res.send({ error });
 		}
-		forecast(longitude, latitude, (error, {description, temperature, feels_like} = {}) => {
+		forecast(longitude, latitude, (error, {description, temperature, feels_like, precip, humidity, icon_url} = {}) => {
 			if(error){
 				return res.send({ error });
 			}
@@ -59,7 +61,10 @@ app.get('/my-weather', (req, res) => {
 				description,
 				temperature,
 				feels_like,
-				location
+				location,
+				precip,
+				humidity,
+				icon_url
 			});
 		});
 	});
