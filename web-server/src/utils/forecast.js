@@ -12,11 +12,11 @@ const forecast = (lon, lat, callback) => {
 		} else {
 			callback(undefined, {
 				description: "It is currently " + body.current.weather_descriptions[0] + " out.",
-				temperature: " The temperature is " + body.current.temperature + " degrees.",
-				feels_like: " And it feels like it is " + body.current.feelslike + " degrees out.",
+				temperature: " The temperature is " + body.current.temperature + "°F .",
+				feels_like: " And it feels like it is " + body.current.feelslike + "°F out.",
 				icon_url: body.current.weather_icons[0],
-				humidity: " There is " + body.current.humidity + "% humidity today.",
-				precip: " There is " + body.current.precip + "% chance of precipitation."
+				humidity: " The current humidity is: " + body.current.humidity + "%.",
+				precip: " The current probability of precipitation is: " + body.current.precip + "%."
 			});
 		}
 	});

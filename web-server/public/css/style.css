@@ -1,6 +1,7 @@
 body {
-    color: navy;
-    font-family: Helvetica, sans-serif;
+    color: #333;
+    font-family: 'Assistant', sans-serif;
+    font-size: medium;
     max-width: 650px;
     margin: 0 auto;
     padding: 0 16px;
@@ -21,22 +22,37 @@ footer {
     padding: 20px;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    color: #222;
+    font-family: 'Montserrat', sans-serif;
+}
+
 h1 {
-    color: pink;
     font-size: 48px;
-    font-family: monospace, sans-serif;
 }
 
 nav span a {
-    color: #888;
+    color: #777;
     margin-right: 20px;
     text-decoration: none;
+    padding: 4px;
+}
+
+nav span a:hover {
+    color: #fff;
+    background-color: #777;
+    border-radius: 5%;
+    border: 1px solid #666;
+    padding: 4px;
 }
 
 .portrait {
-    width: 250px;
+    float: right;
+    min-width: 100px;
+    max-width: 250px;
     height: auto;
-    border-radius: 100%;
+    border-radius: 10%;
+    margin: 1em;
 }
 
 .main-section {
@@ -46,6 +62,7 @@ nav span a {
 input {
     border: 1px solid #ccc;
     padding: 10px;
+    min-width: 5em;
 }
 
 button {
@@ -54,4 +71,25 @@ button {
     background: #888;
     color: #fff;
     padding: 10px;
+}
+
+.sig {
+    font-family: 'Kaushan Script', cursive;
+}
+
+#location {
+    font-weight: bold;
+    margin: 1px 0;
+}
+
+img {
+    float: left;
+    margin: 0 10px 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5%;
+}
+
+#display-weather {
+    margin-top: 20px;
+    padding: 5px 0;
 }

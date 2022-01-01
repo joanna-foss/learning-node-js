@@ -19,6 +19,8 @@ formData.addEventListener('submit', (e) => {
 		res.json().then((data)=> {
 		if(data.error){
 			locationP.textContent = data.error;
+			descriptionP.textContent = "";
+			icon.src = "";
 		} else {
 			locationP.textContent = data.location;
 			descriptionP.textContent = data.description + data.humidity + data.precip + data.temperature + data.feels_like;
