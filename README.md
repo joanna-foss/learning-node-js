@@ -5,6 +5,7 @@ In this repository I'll be exploring nodejs.
 Here, I'll create the following:
 - note building application
 - weather application using APIs
+  <br><a href='https://foss-weather-application.herokuapp.com/'>View my weather app here!</a>
 - task manager REST API
 - chat application with client-side companion
 
