@@ -1,8 +1,8 @@
-const {weatherstackAPIkey} = require("../keys");
+require('dotenv').config({ path: '././.env' })
 const request = require("postman-request");
 
 const forecast = (lon, lat, callback) => {
-	const url = 'http://api.weatherstack.com/current?access_key=' + weatherstackAPIkey + '&query='+ lat + ',' + lon + '&units=f';
+	const url = 'http://api.weatherstack.com/current?access_key=' + `${process.env.weatherstackAPIkey}` + '&query='+ lat + ',' + lon + '&units=f';
 
 	request({url: url, json: true}, (error, {body} = {}) => { //reference playground/5-es6-objects.js for refresh on what's happening here
 		if(error){
